@@ -22,6 +22,12 @@ spec:
   - secretKey: openshiftSSHPublicKey
     remoteRef:
       key: 2a4c460c-4443-3d29-ee43-18b21b9c6b3b
+  - secretKey: adminPassword
+    remoteRef:
+      key: 561166f2-3c06-4c61-9531-422bb0ea3485
+  - secretKey: configPassword
+    remoteRef:
+      key: 223d4d5d-7e70-482d-b923-c80fc9031581
   refreshInterval: 24h0m0s
   secretStoreRef:
     name: cluster
@@ -42,3 +48,5 @@ spec:
         pullSecret: "{{ .openshiftPullSecret | toString }}"
         ssh-publickey: "{{ .openshiftSSHPublicKey | toString }}"
         ssh-privatekey: "{{ .openshiftSSHPrivateKey | toString }}"
+        adminPassword: "{{ .adminPassword | toString }}"
+        configPassword: "{{ .configPassword | toString }}"
